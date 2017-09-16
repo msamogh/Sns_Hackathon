@@ -233,7 +233,7 @@ def getMostRelevant(metaData, searchWord):
     if len(newMetaList) == 0:
         pass
     elif len(newMetaList) == 1:
-        return newMetaList
+        return newMetaList[0]
     else:
         metaData = newMetaList    
 
@@ -251,7 +251,7 @@ def getMostRelevant(metaData, searchWord):
     if len(newMetaList) == 0:
         pass
     elif len(newMetaList) == 1:
-        return newMetaList
+        return newMetaList[0]
     else:
         metaData = newMetaList
     
