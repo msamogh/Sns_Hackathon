@@ -9,7 +9,7 @@ def convert_youtubeURL_to_download_URL(youtube_URL):
 	https://www.ssyoutube.com/XXX contains a link which allows music videos to be downloaded.
 	youtube_URL: the URL of the music video to be downloaded
 	"""
-	index = youtube_URL.find('youtube')
+	index = youtube_URL.find('https')
 	file_retrieve_URL = youtube_URL[0:index] + 'ss' + youtube_URL[index:]
 	redirect_response = requests.get(file_retrieve_URL)
 	print(redirect_response.url)

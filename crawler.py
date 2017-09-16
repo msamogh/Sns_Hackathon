@@ -13,14 +13,14 @@ YouTube stores all the data about these videos using HTML format. Beautiful Soup
 #This method initialises a Beautiful Soup object which is used to navigate through the HTML tree structure
 def init(base_url):    
     """
-	***************No error section starts******************
-	"""
-	r = urlopen(base_url).read()
+    ***************No error section starts******************
+    """
+    r = urlopen(base_url).read()
     soup = BeautifulSoup(r, 'html.parser')
     return soup
-	"""
-	***************No error section ends******************
-	"""
+    """
+    ***************No error section ends******************
+    """
 
 #Returns a list of dictionaries that contain key value pairs of attribute:value
 #Returns a list of dictionaries that contain key value pairs of attribute:value
@@ -142,9 +142,9 @@ def getMetaData(soup, noOfRecords):
     
     #Retrieving first n records
     for i in range(min(len(videoTags), noOfRecords)):
-		"""
-		***************No error section starts****************
-		"""
+        """
+        ***************No error section starts****************
+        """
         video = videoTags[i]
         d = {}
 
@@ -171,10 +171,10 @@ def getMetaData(soup, noOfRecords):
         except:
             d['Title'] = None
             d['Link'] = None
-		
-		"""
-		***************No error section ends******************
-		"""
+        
+        """
+        ***************No error section ends******************
+        """
 
         #String manipulation for time format
         time = durationData.contents[0]
@@ -188,7 +188,7 @@ def getMetaData(soup, noOfRecords):
         if(s != None):
             if(s.has_attr('title')):
                 if(s['title'] == 'Verified'):
-                    d['Verified'] = True
+                    pass
 
         #Third child of yt-lockup-content division
         metaDataTags = video.contents[2].ul
@@ -208,6 +208,7 @@ def checkIfVerified(meta):
     return meta['Verified'] == True
 
 #Function that converts Youtube views (a string) to an integer
+#Eg: Youtube views -> 123,456,789 should become 123456789
 def toNumber(string):
     number = string
     number = number.replace(',' , '')
@@ -221,9 +222,9 @@ def getMostRelevant(metaData, searchWord):
     searchWord: The search text
     """
     """
-	***************No error section starts******************
-	"""
-	#Filters only verified channels
+    ***************No error section starts******************
+    """
+    #Filters only verified channels
     newMetaList = []
     for video in metaData:
         if(checkIfVerified(video)):
@@ -263,7 +264,7 @@ def getMostRelevant(metaData, searchWord):
                 maxViews = curViews
                 temp = video
     return temp
-	
-	"""
-	***************No error section ends******************
-	"""
+    
+    """
+    ***************No error section ends******************
+    """

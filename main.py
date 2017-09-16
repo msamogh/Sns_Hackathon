@@ -50,7 +50,7 @@ def initiate_Download(search, relevant):
     youtube_URL = 'https://www.youtube.com'+relevant['Link']
     ssyoutube_URL = convert_youtubeURL_to_download_URL(youtube_URL)
     file_URL = retrieve_File_URL(ssyoutube_URL)
-    download_video(file_URL, search+'.mp4')
+    download_video(file_URL, search)
         
     
 

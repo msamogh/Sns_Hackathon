@@ -21,7 +21,7 @@ def compareArtists(artists, search):
 def searchStringLogic(cursor, search_string):
     words = search_string.split(' ')
     for i in range(len(words) - 1):
-        artist = '-'.join(words[0:i+1])
+        artist = '-'.join(words[0:i])
         song = '-'.join(words[i+1:])
         print('Artist', artist)
         print('Song', song)
@@ -36,7 +36,7 @@ def searchStringLogic(cursor, search_string):
     
 def getAllSongs(cursor, artist, song):
     songs = []
-    query = "SELECT song, year FROM lyrics WHERE artist LIKE '%s' AND song NOT LIKE '%s';" %(artist, song)
+    query = "SELECT song, year FROM lyrics WHERE artist LIKE '%s' AND song NOT LIKE '%s';" %(song, artist)
     cursor.execute(query)
     rows=cursor.fetchall()    
     for row in rows:        
