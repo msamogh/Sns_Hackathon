@@ -1,5 +1,5 @@
 from Tkinter import *
-from main import *
+#from main import *
 from song_finder import *
 import crawler
 
@@ -74,7 +74,8 @@ class GUI(Frame):
         Label(self, text="Song Downloader System", background="#CC0001", font= ("Comic Sans MS",16)).grid(row=0, column=0, padx=20)
         self.search_var = StringVar()
         
-        self.entry = Entry(self, textvariable=self.search_var, width=45)                
+        self.entry = Entry(self, textvariable=self.search_var, width=45)
+        self.entry.grid()
         
         self.b1=Button(self, text='Search', command=self.search)
         self.b1.grid(row=1, column=1, sticky=W, padx=20, pady=10)
