@@ -211,9 +211,10 @@ def checkIfVerified(meta):
 #Eg: Youtube views -> 123,456,789 should become 123456789
 def toNumber(string):
     number = string
-    number = number.replace(',' , '')
-    return int(number)
-
+    try:
+        return int(number)
+    except: 
+        return -1
 
 #Function that filters out the most relevant Youtube video
 def getMostRelevant(metaData, searchWord):
